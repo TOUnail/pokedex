@@ -1,21 +1,17 @@
 import axios from "axios";
-import { useQuery } from "react-query";
+import { useQuery, useInfiniteQuery } from "react-query";
 
-const fetchPokemon = () =>
-  axios
-    .get("https://pokeapi.co/api/v2/pokemon?limit=10")
-    .then((res) => res.data);
-// const fetchOnePokemon = (url) => axios.get(url).then((res) => res.data);
-
-export const usePokemon = () => {
-  return useQuery("pokemon", fetchPokemon, { refetchOnWindowFocus: false });
+const fetchPokemon = async ({ pageParams = 0 }) => {
+  const { data } = await axios.get(
+    `https://pokeapi.co/api/v2/pokemon?offset=${pageParams}&limit=10`
+  );
+  return data;
 };
 
-export const getPokemonData = async (url) => {
-  const { data } = await axios.get(url).then((res) => res.data);
-  return data;
-  //   return useQuery(["pokemon", url], () => fetchOnePokemon(url), {
-  //     refetchOnWindowFocus: false,
-  //   });
-  // console.log(url);
+export const usePokemon = () => {
+  // return useQuery("pokemon", fetchPokemon, { refetchOnWindowFocus: false });
+  return useInfiniteQuery("pokemon", fetchPokemon, {
+    refetchOnWindowFocus: false,
+    getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+  });
 };
