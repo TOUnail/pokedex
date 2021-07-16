@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Pokemon from "./pages/Pokemon";
 import { ReactQueryDevtools } from "react-query/devtools";
+
 const App = () => {
+  const [gen, setGen] = useState(0);
   const queryClient = new QueryClient();
+
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
@@ -13,7 +17,11 @@ const App = () => {
             path="/pokemon/:id"
             component={(props) => <Pokemon {...props} />}
           />
-          <Route exact path={"/"} component={Home} />
+          <Route
+            exact
+            path={"/"}
+            component={(props) => <Home {...props} gen={gen} setGen={setGen} />}
+          />
         </Switch>
       </Router>
       <ReactQueryDevtools initialIsOpen />

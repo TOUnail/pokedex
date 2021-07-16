@@ -4,32 +4,37 @@ import { Link } from "react-router-dom";
 import { useIsFetching, useQueryClient } from "react-query";
 import { usePokemon } from "../hooks/usePokemon";
 
-const Home = () => {
-  // TODO: Figure out infinite queries/loading
+const Home = (props) => {
+  let { gen, setGen } = props;
   const queryClient = useQueryClient();
-  const pokemon = usePokemon();
+  const pokemon = usePokemon(gen);
   const isFetching = useIsFetching();
-
   const getPokemonData = async (url) => {
-    const baseUrl = () => {
-      return axios.get(url);
-    };
-    const pokemonSpecies = () => {
-      return axios.get(
-        `https://pokeapi.co/api/v2/pokemon-species/${
-          url.split("/").slice(-2, -1)[0]
-        }`
-      );
-    };
-    const data = await Promise.all([baseUrl(), pokemonSpecies()])
-      .then((res) => {
-        let combinedData = Object.assign({}, res[0].data, res[1].data);
-        return combinedData;
-      })
-      .catch((err) => console.log(err));
-    return data;
+    try {
+      const baseUrl = () => {
+        return axios.get(url);
+      };
+      const pokemonSpecies = () => {
+        return axios.get(
+          `https://pokeapi.co/api/v2/pokemon-species/${
+            url.split("/").slice(-2, -1)[0]
+          }`
+        );
+      };
+      const data = await Promise.all([baseUrl(), pokemonSpecies()])
+        .then((res) => {
+          let combinedData = Object.assign({}, res[0].data, res[1].data);
+          return combinedData;
+        })
+        .catch((err) => console.log(err));
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
   };
-  console.log(pokemon);
+  const handleGenClick = (genNumber) => {
+    setGen(genNumber);
+  };
   return (
     <div>
       {pokemon.isLoading && <p>Loading Pokemon</p>}
@@ -63,6 +68,9 @@ const Home = () => {
               ? "Load More"
               : "Nothing more to load"}
           </button>
+          {/* <button onClick={() => handleGenClick(0)}>skip to 1st gen</button>
+          <button onClick={() => handleGenClick(151)}>skip to 2nd gen</button>
+          <button onClick={() => handleGenClick(251)}>skip to 3rd gen</button> */}
         </>
       )}
       {/* {isFetching ? (
