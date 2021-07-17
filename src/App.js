@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
 import Pokemon from "./pages/Pokemon";
+
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ReactQueryDevtools } from "react-query/devtools";
+
+import "./App.scss";
 
 const App = () => {
   const [gen, setGen] = useState(0);

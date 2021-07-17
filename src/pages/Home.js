@@ -1,8 +1,8 @@
-import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useIsFetching, useQueryClient } from "react-query";
 import { usePokemon } from "../hooks/usePokemon";
+import PokemonCard from "../components/home/PokemonCard";
 
 const Home = (props) => {
   let { gen, setGen } = props;
@@ -35,32 +35,40 @@ const Home = (props) => {
   const handleGenClick = (genNumber) => {
     setGen(genNumber);
   };
+  // const getPokemonImage = async (url) => {
+  //   try {
+  //     const data = await axios.get(url);
+  //     return data;
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
+  // console.log(getPokemonImage);
   return (
     <div>
       {pokemon.isLoading && <p>Loading Pokemon</p>}
       {pokemon.isError && <p>Error</p>}
       {pokemon.isSuccess && (
-        <>
-          <ul style={{ display: "inline-block" }}>
+        <div className="container-md home-container">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-0 g-md-3">
             {pokemon.data?.pages.map((p) =>
               p.results.map((res) => (
-                <li
-                  key={res.url}
+                <Link
                   onMouseEnter={async () => {
                     await queryClient.prefetchQuery(
                       ["singlePokemon", res.url],
                       () => getPokemonData(res.url),
-                      { staleTime: 10 * 1000 }
+                      { staleTime: Infinity }
                     );
                   }}
+                  key={res.name}
+                  to={`/pokemon/${res.url.split("/").slice(-2, -1)[0]}`}
                 >
-                  <Link to={`/pokemon/${res.url.split("/").slice(-2, -1)[0]}`}>
-                    {res.name}
-                  </Link>
-                </li>
+                  <PokemonCard pokemon={res} />
+                </Link>
               ))
             )}
-          </ul>
+          </div>
           <button onClick={() => pokemon.fetchNextPage()}>
             {pokemon.isFetchingNextPage
               ? "Loading more..."
@@ -71,7 +79,7 @@ const Home = (props) => {
           {/* <button onClick={() => handleGenClick(0)}>skip to 1st gen</button>
           <button onClick={() => handleGenClick(151)}>skip to 2nd gen</button>
           <button onClick={() => handleGenClick(251)}>skip to 3rd gen</button> */}
-        </>
+        </div>
       )}
       {/* {isFetching ? (
         <p style={{ position: "fixed", top: "2%", right: "2%" }}>Fetching</p>

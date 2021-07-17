@@ -5,7 +5,7 @@ import { useSinglePokemon } from "../hooks/useSinglePokemon";
 const Pokemon = (props) => {
   let id = props.match.params.id;
   const pokemon = useSinglePokemon(id);
-  console.log(pokemon);
+  // console.log(pokemon);
   return (
     <div>
       {pokemon.isLoading && <p>Loading Pokemon</p>}

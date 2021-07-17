@@ -23,7 +23,7 @@ export const usePokemon = (gen) => {
           offset = gen;
         }
         const pokemonData = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=10`
+          `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=21`
         );
         return pokemonData.data;
       } catch (e) {
@@ -42,7 +42,7 @@ export const usePokemon = (gen) => {
         }
         return lastOffset.offset;
       },
-      staleTime: 1000,
+      staleTime: Infinity,
     }
   );
 

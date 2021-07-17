@@ -1,0 +1,32 @@
+@mixin glass($color, $opacity, $blur) {
+    background: rgba( $color, $opacity );
+    // box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( $blur );
+    -webkit-backdrop-filter: blur( $blur );
+    // border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+$enable-negative-margins: true;
+@import "../node_modules/bootstrap";
+@media (max-width: 767px) {
+    .home-container {padding-left: 0;padding-right:0;}
+}
+body {
+    margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    background: rgb(182,173,201);
+background: linear-gradient(90deg, rgba(182,173,201,0.7) 0%, rgba(187,226,220,1) 7%, rgba(196,232,184,1) 100%);
+     background-repeat: no-repeat;
+     
+}
+.pokemon-card {
+    @include glass(#fff, 0.8, 5px);
+    border-bottom: 1px solid #ddd;
+    @media (min-width: 768px) {
+        border: 0;
+    }
+}
