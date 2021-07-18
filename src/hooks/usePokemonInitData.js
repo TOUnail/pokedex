@@ -9,7 +9,7 @@ const fetchData = async (url) => {
   }
 };
 export const usePokemonInitData = (url) => {
-  return useQuery(["image", url], () => fetchData(url), {
+  return useQuery(["initData", url], () => fetchData(url), {
     refetchOnWindowFocus: false,
     staleTime: Infinity,
   });

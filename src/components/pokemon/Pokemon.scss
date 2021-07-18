@@ -1,0 +1,90 @@
+.masthead {
+    position: relative;
+    border-bottom-left-radius: 50% 13%;
+    border-bottom-right-radius: 50% 13%;
+    color: #fff;
+    margin-bottom: 2rem;
+    &.bug {
+      background-color: rgba(146, 188, 44, 0.5);
+    }
+  
+    &.dark {
+      background-color: rgba(89, 87, 97, 0.5);
+    }
+  
+    &.dragon {
+      background-color: rgba(12, 105, 200, 0.5);
+    }
+  
+    &.electric {
+      background-color: rgba(242, 217, 78, 0.5);
+    }
+  
+    &.fire {
+      background-color: rgba(251, 165, 76, 0.5);
+    }
+  
+    &.fairy {
+      background-color: rgba(238, 144, 230, 0.5);
+    }
+  
+    &.fighting {
+      background-color: rgba(211, 66, 95, 0.5);
+    }
+  
+    &.flying {
+      background-color: rgba(161, 187, 236, 0.5);
+    }
+  
+    &.ghost {
+      background-color: rgba(95, 109, 188, 0.5);
+    }
+  
+    &.grass {
+      background-color: rgba(95, 189, 88, 0.5);
+    }
+  
+    &.ground {
+      background-color: rgba(218, 124, 77, 0.5);
+    }
+  
+    &.ice {
+      background-color: rgba(117, 208, 193, 0.5);
+    }
+  
+    &.normal {
+      background-color: rgba(160, 162, 159, 0.5);
+    }
+  
+    &.poison {
+      background-color: rgba(183, 99, 207, 0.5);
+    }
+  
+    &.psychic {
+      background-color: rgba(250, 133, 129, 0.5);
+    }
+  
+    &.rock {
+      background-color: rgba(201, 187, 138, 0.5);
+    }
+  
+    &.steel {
+      background-color: rgba(86, 149, 163, 0.5);
+    }
+  
+    &.water {
+      background-color: rgba(83, 157, 223, 0.5);
+    }
+  }
+  
+//   .evolution-stone {
+//       max-width: 24px;
+//       height: auto;
+//   }
+  
+//   .learnset > thead > tr > th:first-child {
+//     width: 85px;
+//     @media (min-width: 992px) {
+//       width: 120px;
+//     }
+//   }

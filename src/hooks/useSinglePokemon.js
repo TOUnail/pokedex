@@ -2,11 +2,14 @@ import axios from "axios";
 import { useQuery } from "react-query";
 
 const fetchPokemonById = async (id) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
   const baseUrl = () => {
-    return axios.get(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+    return axios.get(url);
   };
   const pokemonSpecies = () => {
-    return axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+    return axios.get(url).then((response) => {
+      return axios.get(response.data.species.url);
+    });
   };
 
   const data = await Promise.all([baseUrl(), pokemonSpecies()])
@@ -15,6 +18,7 @@ const fetchPokemonById = async (id) => {
       return combinedData;
     })
     .catch((err) => console.log(err));
+
   return data;
 };
 
