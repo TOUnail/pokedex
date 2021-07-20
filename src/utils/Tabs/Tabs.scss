@@ -1,0 +1,148 @@
+.nav-link, .nav-link:hover, .nav-link:focus {
+  &.bug {
+    color: rgba(146, 188, 44, 1);
+  }
+
+  &.dark {
+    color: rgba(89, 87, 97, 1);
+  }
+
+  &.dragon {
+    color: rgba(12, 105, 200, 1);
+  }
+
+  &.electric {
+    color: rgba(242, 217, 78, 1);
+  }
+
+  &.fire {
+    color: rgba(251, 165, 76, 1);
+  }
+
+  &.fairy {
+    color: rgba(238, 144, 230, 1);
+  }
+
+  &.fighting {
+    color: rgba(211, 66, 95, 1);
+  }
+
+  &.flying {
+    color: rgba(161, 187, 236, 1);
+  }
+
+  &.ghost {
+    color: rgba(95, 109, 188, 1);
+  }
+
+  &.grass {
+    color: rgba(95, 189, 88, 1);
+  }
+
+  &.ground {
+    color: rgba(218, 124, 77, 1);
+  }
+
+  &.ice {
+    color: rgba(117, 208, 193, 1);
+  }
+
+  &.normal {
+    color: rgba(160, 162, 159, 1);
+  }
+
+  &.poison {
+    color: rgba(183, 99, 207, 1);
+  }
+
+  &.psychic {
+    color: rgba(250, 133, 129, 1);
+  }
+
+  &.rock {
+    color: rgba(201, 187, 138, 1);
+  }
+
+  &.steel {
+    color: rgba(86, 149, 163, 1);
+  }
+
+  &.water {
+    color: rgba(83, 157, 223, 1);
+  }
+}
+
+.nav-pills .nav-link.active, .nav-pills .nav-link.active:hover, .nav-pills .nav-link.active:focus {
+    color: #fff;
+    &.bug {
+        background-color: rgba(146, 188, 44, 1);
+      }
+    
+      &.dark {
+        background-color: rgba(89, 87, 97, 1);
+      }
+    
+      &.dragon {
+        background-color: rgba(12, 105, 200, 1);
+      }
+    
+      &.electric {
+        background-color: rgba(242, 217, 78, 1);
+      }
+    
+      &.fire {
+        background-color: rgba(251, 165, 76, 1);
+      }
+    
+      &.fairy {
+        background-color: rgba(238, 144, 230, 1);
+      }
+    
+      &.fighting {
+        background-color: rgba(211, 66, 95, 1);
+      }
+    
+      &.flying {
+        background-color: rgba(161, 187, 236, 1);
+      }
+    
+      &.ghost {
+        background-color: rgba(95, 109, 188, 1);
+      }
+    
+      &.grass {
+        background-color: rgba(95, 189, 88, 1);
+      }
+    
+      &.ground {
+        background-color: rgba(218, 124, 77, 1);
+      }
+    
+      &.ice {
+        background-color: rgba(117, 208, 193, 1);
+      }
+    
+      &.normal {
+        background-color: rgba(160, 162, 159, 1);
+      }
+    
+      &.poison {
+        background-color: rgba(183, 99, 207, 1);
+      }
+    
+      &.psychic {
+        background-color: rgba(250, 133, 129, 1);
+      }
+    
+      &.rock {
+        background-color: rgba(201, 187, 138, 1);
+      }
+    
+      &.steel {
+        background-color: rgba(86, 149, 163, 1);
+      }
+    
+      &.water {
+        background-color: rgba(83, 157, 223, 1);
+      }
+}

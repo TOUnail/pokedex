@@ -1,6 +1,5 @@
 import "../components/pokemon/Pokemon.scss";
-import Description from "../components/pokemon/Description";
-import Evolution from "../components/pokemon/Evolution";
+import Body from "../components/pokemon/Body";
 import Types from "../components/Types";
 
 import { useHistory } from "react-router-dom";
@@ -82,48 +81,7 @@ const Pokemon = (props) => {
               </div>
             </div>
           </div>
-          <div className="container">
-            {/* <div className="row">
-              <div className="col text-center mb-3">
-                <button
-                  className="btn btn-sm btn-light rounded-circle"
-                  style={{ top: "50%", right: "0px" }}
-                  // onClick={onClickSpeak}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M9.5 8H4C3.44772 8 3 8.44772 3 9V15C3 15.5523 3.44772 16 4 16H9.5L16 21V3L9.5 8Z"
-                      stroke="black"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M20 9.35425C20.6224 10.0594 21 10.9856 21 12.0001C21 13.0145 20.6224 13.9408 20 14.6459"
-                      stroke="black"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div> 
-              
-            </div> */}
-            <Description
-              genera={data?.genera}
-              flavorText={data?.flavor_text_entries}
-              height={data?.height}
-              weight={data.weight}
-            />
-            <Evolution url={data?.evolution_chain.url} />
-          </div>
+          <Body data={data} />
         </>
       )}
     </>

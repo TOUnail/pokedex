@@ -1,12 +1,9 @@
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { useIsFetching, useQueryClient } from "react-query";
+import { useIsFetching } from "react-query";
 import { usePokemon } from "../hooks/usePokemon";
 import PokemonCard from "../components/home/PokemonCard";
 
 const Home = (props) => {
   let { gen, setGen } = props;
-  const queryClient = useQueryClient();
   const {
     data,
     isSuccess,
@@ -17,30 +14,10 @@ const Home = (props) => {
     hasNextPage,
   } = usePokemon(gen);
   const isFetching = useIsFetching();
-  const getPokemonData = async (url) => {
-    try {
-      const baseUrl = () => {
-        return axios.get(url);
-      };
-      const pokemonSpecies = () => {
-        return axios.get(url).then((response) => {
-          return axios.get(response.data.species.url);
-        });
-      };
-      const data = await Promise.all([baseUrl(), pokemonSpecies()])
-        .then((res) => {
-          let combinedData = Object.assign({}, res[0].data, res[1].data);
-          return combinedData;
-        })
-        .catch((err) => console.log(err));
-      return data;
-    } catch (e) {
-      console.log(e);
-    }
-  };
   const handleGenClick = (genNumber) => {
     setGen(genNumber);
   };
+  // console.log(data);
   return (
     <div>
       {isLoading && <p>Loading Pokemon</p>}
@@ -51,20 +28,7 @@ const Home = (props) => {
             {data?.pages.map((p) =>
               p.results.map((res) => (
                 <div key={res.name} className="col">
-                  <Link
-                    onMouseEnter={async () => {
-                      await queryClient.prefetchQuery(
-                        ["singlePokemon", res.url],
-                        () => getPokemonData(res.url),
-                        { staleTime: Infinity }
-                      );
-                    }}
-                    key={res.name}
-                    to={`/pokemon/${res.url.split("/").slice(-2, -1)[0]}`}
-                    className="text-decoration-none"
-                  >
-                    <PokemonCard pokemon={res} />
-                  </Link>
+                  <PokemonCard pokemon={res} />
                 </div>
               ))
             )}

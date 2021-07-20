@@ -25,6 +25,7 @@ background: linear-gradient(90deg, rgba(182,173,201,0.7) 0%, rgba(187,226,220,1)
 }
 .pokemon-card {
     @include glass(#fff, 0.8, 5px);
+    border: 0;
     border-bottom: 1px solid #ddd;
     @media (min-width: 768px) {
         border: 0;
