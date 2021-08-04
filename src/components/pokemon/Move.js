@@ -14,8 +14,7 @@ const Move = ({ move, url, level, generation }) => {
     {
       refetchOnMount: false,
       refetchOnWindowFocus: false,
-      cacheTime: 1,
-      staleTime: 1,
+      staleTime: Infinity,
     }
   );
   // console.log(data);
@@ -31,7 +30,6 @@ const Move = ({ move, url, level, generation }) => {
       enabled: !!machineUrl,
     }
   );
-
   return (
     <>
       {isLoading && <p>Loading</p>}
@@ -42,7 +40,9 @@ const Move = ({ move, url, level, generation }) => {
             <p className="mb-0 text-capitalize fw-bold">
               {move.replace("-", " ")}
             </p>
-            {level && <p className="text-muted mb-0">Level {level}</p>}
+            {level !== undefined && (
+              <p className="text-muted mb-0">Level {level}</p>
+            )}
             {tmhm.isSuccess && (
               <p className="text-muted mb-0 text-uppercase">
                 {tmhm.data.data.item.name}

@@ -3,7 +3,6 @@
     border-bottom-left-radius: 50% 13%;
     border-bottom-right-radius: 50% 13%;
     color: #fff;
-    margin-bottom: 2rem;
     &.bug {
       background-color: rgba(146, 188, 44, 0.5);
     }
@@ -77,10 +76,13 @@
     }
   }
   
-//   .evolution-stone {
-//       max-width: 24px;
-//       height: auto;
-//   }
+  .evolution-stone {
+      max-width: 25px;
+      height: auto;
+      @media (min-width: 768px) {
+        max-width: 32px;
+      }
+  }
   
 //   .learnset > thead > tr > th:first-child {
 //     width: 85px;
@@ -88,3 +90,34 @@
 //       width: 120px;
 //     }
 //   }
+
+// Eevee Evolution Style
+
+.eevee-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-template-areas: "base-eevee . ." "base-eevee . ." "base-eevee . .";
+  border-bottom: 1px solid #ccc;
+}
+
+.eevee-row.eevee-gen-ii {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "base-eevee . ." "base-eevee . .";
+}
+
+.base-eevee {
+  grid-area: base-eevee;
+}
+
+.evo-arrow {
+  width: 25px;
+  height: 25px;
+  @media (min-width: 768px) {
+
+    width: 50px;
+    height: 50px;
+  }
+}

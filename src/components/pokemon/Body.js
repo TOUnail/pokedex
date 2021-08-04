@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Tabs, Tab, Panel } from "../../utils/Tabs/Tabs";
+import Stats from "./Stats";
 import Description from "./Description";
 import Evolution from "./Evolution";
 import Moves from "./Moves";
@@ -30,12 +31,13 @@ const Body = ({ data }) => {
                     height={data?.height}
                     weight={data?.weight}
                   />
+                  <Stats stats={data?.stats} type={data?.types[0].type.name} />
                 </Panel>
                 <Panel value={activeTab} selectedIndex={2}>
                   <Evolution url={data?.evolution_chain.url} />
                 </Panel>
                 <Panel value={activeTab} selectedIndex={3}>
-                  <Moves moves={data?.moves} />
+                  <Moves moves={data?.moves} type={data?.types[0].type.name} />
                 </Panel>
               </div>
             </div>

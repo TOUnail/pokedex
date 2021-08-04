@@ -28,7 +28,7 @@ export const Tabs = ({ selectedTab, onChange, children }) => {
   });
   return (
     <>
-      <ul className="nav nav-pills">{tabs}</ul>
+      <ul className="nav nav-pills my-4">{tabs}</ul>
     </>
   );
 };

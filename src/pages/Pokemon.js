@@ -16,7 +16,7 @@ const Pokemon = (props) => {
       history.push("/");
     }
   };
-  console.log(data);
+  // console.log(data);
   return (
     <>
       {isLoading && <p>Loading Pokemon</p>}
