@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Tabs, Tab, Panel } from "../../utils/Tabs/Tabs";
 import Stats from "./Stats";
 import Description from "./Description";
+import Abilities from "./Abilities";
 import Evolution from "./Evolution";
 import Moves from "./Moves";
 const Body = ({ data }) => {
@@ -31,6 +32,7 @@ const Body = ({ data }) => {
                     height={data?.height}
                     weight={data?.weight}
                   />
+                  <Abilities abilities={data?.abilities} />
                   <Stats stats={data?.stats} type={data?.types[0].type.name} />
                 </Panel>
                 <Panel value={activeTab} selectedIndex={2}>

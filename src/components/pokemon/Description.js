@@ -1,4 +1,4 @@
-const Description = ({ genera, flavorText, height, weight }) => {
+const Description = ({ genera, flavorText, height, weight, abilities }) => {
   let genus = genera
     .filter((entry) => entry.language.name === "en")
     .map((text) => text.genus);
