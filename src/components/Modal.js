@@ -17,15 +17,17 @@ const Modal = ({ open, hide, children, title }) => {
                 </div>
                 <div className="modal-body">
                   {children}
-                  <button
-                    type="button"
-                    className="btn btn-sm btn-secondary"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    onClick={hide}
-                  >
-                    Close
-                  </button>
+                  <div className="text-center">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-secondary"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      onClick={hide}
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
